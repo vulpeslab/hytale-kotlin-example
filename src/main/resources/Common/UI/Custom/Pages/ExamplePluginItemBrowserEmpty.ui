@@ -1,0 +1,11 @@
+$C = "../Common.ui";
+
+Group {
+  Anchor: (Height: 100);
+  LayoutMode: Middle;
+
+  Label {
+    Style: LabelStyle(...$C.@DefaultLabelStyle, FontSize: 14, TextColor: #808080);
+    Text: %exampleplugin.ui.kits.browser.noresults;
+  }
+}

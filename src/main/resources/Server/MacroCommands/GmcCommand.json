@@ -1,0 +1,7 @@
+{
+  "Name": "gmc",
+  "Description": "Switch to Creative mode",
+  "Commands": [
+    "gamemode creative"
+  ]
+}

@@ -1,0 +1,174 @@
+$C = "../Common.ui";
+$Sounds = "../Sounds.ui";
+
+@SearchButtonStyle = ButtonStyle(
+  Default: (
+    Background: #2a4a5a(0.8)
+  ),
+  Hovered: (
+    Background: #3a6070(0.9)
+  ),
+  Pressed: (
+    Background: #4a7080(1.0)
+  )
+);
+
+@ConfirmButtonStyle = ButtonStyle(
+  Default: (
+    Background: #2a5040(0.85)
+  ),
+  Hovered: (
+    Background: #3a6855(0.95)
+  ),
+  Pressed: (
+    Background: #4a7865(1.0)
+  )
+);
+
+@CancelButtonStyle = ButtonStyle(
+  Default: (
+    Background: #502a2a(0.85)
+  ),
+  Hovered: (
+    Background: #683a3a(0.95)
+  ),
+  Pressed: (
+    Background: #784a4a(1.0)
+  )
+);
+
+@AddButtonStyle = ButtonStyle(
+  Default: (
+    Background: #2a5a6a(0.9)
+  ),
+  Hovered: (
+    Background: #3a7080(0.95)
+  ),
+  Pressed: (
+    Background: #4a8090(1.0)
+  )
+);
+
+$C.@PageOverlay {
+  LayoutMode: Middle;
+
+  $C.@DecoratedContainer {
+    Anchor: (Width: 950, Height: 680);
+
+    #Title {
+      Group {
+        LayoutMode: Left;
+        Padding: (Horizontal: 19);
+
+        Label #TitleLabel {
+          Style: $C.@TitleStyle;
+          Text: %exampleplugin.ui.kits.title;
+        }
+
+        Group {
+          FlexWeight: 1;
+        }
+
+        $C.@HeaderSearch {}
+      }
+    }
+
+    #Content {
+      LayoutMode: Top;
+      Padding: (Full: 24);
+
+      // Top section: Add kit
+      Group {
+        LayoutMode: Left;
+        Anchor: (Bottom: 16, Height: 36);
+
+        // Add new kit
+        $C.@TextField #NewKitNameInput {
+          PlaceholderText: %exampleplugin.ui.kits.newkit.placeholder;
+          Anchor: (Width: 280, Right: 10);
+        }
+
+        Button #AddKitButton {
+          Style: @AddButtonStyle;
+          Padding: (Horizontal: 16, Vertical: 8);
+          LayoutMode: Middle;
+
+          Label {
+            Style: LabelStyle(...$C.@DefaultLabelStyle, FontSize: 13, RenderBold: true, HorizontalAlignment: Center);
+            Text: %exampleplugin.ui.kits.addkit;
+          }
+        }
+      }
+
+      // Separator
+      Group {
+        Anchor: (Vertical: 14, Height: 1);
+        Background: #5e512c(0.4);
+      }
+
+      // Scrollable kit list
+      Group #KitList {
+        Anchor: (Height: 500);
+        LayoutMode: TopScrolling;
+        ScrollbarStyle: $C.@DefaultScrollbarStyle;
+        Padding: (Full: 6);
+      }
+    }
+  }
+}
+
+// Rename popup overlay - separate root element for true fullscreen overlay
+Group #RenamePopup {
+  Visible: false;
+  Anchor: (Full: 0);
+  Background: #000000(0.7);
+  LayoutMode: Middle;
+
+  Group {
+    Anchor: (Width: 450, Height: 220);
+    Background: #1a2535(0.98);
+    Padding: (Full: 28);
+    LayoutMode: Top;
+
+    Label {
+      Style: LabelStyle(...$C.@TitleStyle, FontSize: 20);
+      Anchor: (Bottom: 20);
+      Text: %exampleplugin.ui.kits.rename.title;
+    }
+
+    $C.@TextField #RenameInput {
+      PlaceholderText: %exampleplugin.ui.kits.rename.placeholder;
+      Anchor: (Bottom: 24, Height: 48);
+    }
+
+    Group {
+      LayoutMode: Left;
+      Anchor: (Height: 48);
+
+      Button #RenameCancelButton {
+        Style: @CancelButtonStyle;
+        FlexWeight: 1;
+        Anchor: (Right: 16);
+        Padding: (Full: 14);
+
+        Label {
+          Style: LabelStyle(...$C.@DefaultLabelStyle, FontSize: 15, TextColor: #f0c0c0);
+          Text: %exampleplugin.ui.kits.quantity.cancel;
+        }
+      }
+
+      Button #RenameConfirmButton {
+        Style: @ConfirmButtonStyle;
+        FlexWeight: 1;
+        Padding: (Full: 14);
+
+        Label {
+          Style: LabelStyle(...$C.@DefaultLabelStyle, FontSize: 15, TextColor: #c0f0d0);
+          Text: %exampleplugin.ui.kits.rename.confirm;
+        }
+      }
+    }
+  }
+}
+
+$C.@BackButton {}

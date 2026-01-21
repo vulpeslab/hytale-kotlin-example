@@ -1,0 +1,68 @@
+$C = "../Common.ui";
+
+@CardStyle = ButtonStyle(
+  Default: (
+    Background: #000000(0.15)
+  ),
+  Hovered: (
+    Background: #000000(0.25)
+  ),
+  Pressed: (
+    Background: #000000(0.35)
+  )
+);
+
+@LabelStyle = LabelStyle(
+  ...$C.@DefaultLabelStyle,
+  FontSize: 14,
+  HorizontalAlignment: Start
+);
+
+@LabelMutedStyle = LabelStyle(
+  ...@LabelStyle,
+  TextColor: #919191
+);
+
+Group {
+  Anchor: (Bottom: 12, Height: 80);
+
+  Button #UserButton {
+    Style: @CardStyle;
+    Padding: (Full: 12);
+
+    Group {
+      LayoutMode: Left;
+
+      // Avatar placeholder (48x48)
+      Group #AvatarPlaceholder {
+        Anchor: (Width: 48, Height: 48, Right: 16);
+        Background: #4a4a4a;
+
+        Group #AvatarImage {
+          Anchor: (Full: 6);
+          Background: "../Common/WIPIcon.png";
+        }
+      }
+
+      // User info
+      Group {
+        LayoutMode: Top;
+        FlexWeight: 1;
+
+        Label #UsernameLabel {
+          Style: LabelStyle(...$C.@DefaultLabelStyle, FontSize: 16, HorizontalAlignment: Start, RenderBold: true);
+          Anchor: (Bottom: 4);
+        }
+
+        Label #EmailLabel {
+          Style: @LabelMutedStyle;
+          Anchor: (Bottom: 4);
+        }
+
+        Label #UuidLabel {
+          Style: LabelStyle(...@LabelMutedStyle, FontSize: 11);
+        }
+      }
+    }
+  }
+}

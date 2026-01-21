@@ -1,0 +1,8 @@
+{
+  "Group": "Vulpeslab",
+  "Name": "ExamplePlugin",
+  "Version": "${version}",
+  "Description": "Example plugin for Hytale modding (Kotlin)",
+  "Main": "com.vulpeslab.exampleplugin.ExamplePlugin",
+  "IncludesAssetPack": true
+}

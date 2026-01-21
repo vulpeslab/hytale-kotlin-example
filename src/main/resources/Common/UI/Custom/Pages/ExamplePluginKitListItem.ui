@@ -1,0 +1,144 @@
+$C = "../Common.ui";
+$Sounds = "../Sounds.ui";
+
+@CardStyle = ButtonStyle(
+  Default: (
+    Background: #1a2535(0.6)
+  ),
+  Hovered: (
+    Background: #243040(0.8)
+  ),
+  Pressed: (
+    Background: #2e3a4a(1.0)
+  )
+);
+
+@LabelStyle = LabelStyle(
+  ...$C.@DefaultLabelStyle,
+  FontSize: 18,
+  HorizontalAlignment: Start,
+  RenderBold: true
+);
+
+@MutedLabelStyle = LabelStyle(
+  ...$C.@DefaultLabelStyle,
+  FontSize: 12,
+  HorizontalAlignment: Start,
+  TextColor: #8090a0
+);
+
+@EditButtonStyle = ButtonStyle(
+  Default: (
+    Background: #2a5a3a(0.8)
+  ),
+  Hovered: (
+    Background: #3a7a4a(0.9)
+  ),
+  Pressed: (
+    Background: #4a8a5a(1.0)
+  )
+);
+
+@RenameButtonStyle = ButtonStyle(
+  Default: (
+    Background: #3a4a5a(0.8)
+  ),
+  Hovered: (
+    Background: #4a5a6a(0.9)
+  ),
+  Pressed: (
+    Background: #5a6a7a(1.0)
+  )
+);
+
+@DeleteButtonStyle = ButtonStyle(
+  Default: (
+    Background: #5a3a3a(0.8)
+  ),
+  Hovered: (
+    Background: #7a4a4a(0.9)
+  ),
+  Pressed: (
+    Background: #8a5a5a(1.0)
+  )
+);
+
+Group {
+  Anchor: (Bottom: 12, Height: 90);
+  Background: #1a2535(0.5);
+  Padding: (Full: 16);
+
+  Group {
+    LayoutMode: Left;
+
+    // Kit info section
+    Group {
+      FlexWeight: 1;
+      LayoutMode: Top;
+
+      // Kit name row
+      Group {
+        LayoutMode: Left;
+        Anchor: (Bottom: 8, Height: 24);
+
+        Label #KitNameLabel {
+          Style: @LabelStyle;
+        }
+      }
+
+      // Item preview row
+      Group #ItemPreviewRow {
+        LayoutMode: Left;
+        Anchor: (Height: 44);
+
+        // Item icons will be appended here dynamically
+      }
+    }
+
+    // Action buttons - centered vertically, aligned right
+    Group {
+      LayoutMode: Middle;
+      Padding: (Left: 16);
+
+      Group {
+        LayoutMode: Left;
+        Anchor: (Height: 28);
+
+        Button #EditButton {
+          Style: @EditButtonStyle;
+          Anchor: (Right: 6);
+          Padding: (Horizontal: 14, Vertical: 6);
+          LayoutMode: Middle;
+
+          Label {
+            Style: LabelStyle(...$C.@DefaultLabelStyle, FontSize: 12, HorizontalAlignment: Center);
+            Text: %exampleplugin.ui.kits.edit;
+          }
+        }
+
+        Button #RenameButton {
+          Style: @RenameButtonStyle;
+          Anchor: (Right: 6);
+          Padding: (Horizontal: 14, Vertical: 6);
+          LayoutMode: Middle;
+
+          Label {
+            Style: LabelStyle(...$C.@DefaultLabelStyle, FontSize: 12, HorizontalAlignment: Center);
+            Text: %exampleplugin.ui.kits.rename;
+          }
+        }
+
+        Button #DeleteButton {
+          Style: @DeleteButtonStyle;
+          Padding: (Horizontal: 14, Vertical: 6);
+          LayoutMode: Middle;
+
+          Label {
+            Style: LabelStyle(...$C.@DefaultLabelStyle, FontSize: 12, HorizontalAlignment: Center);
+            Text: %exampleplugin.ui.kits.delete;
+          }
+        }
+      }
+    }
+  }
+}

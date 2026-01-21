@@ -1,0 +1,123 @@
+$C = "../Common.ui";
+
+@ItemRowStyle = ButtonStyle(
+  Default: (
+    Background: #1a2535(0.6)
+  ),
+  Hovered: (
+    Background: #2a3a50(0.75)
+  ),
+  Pressed: (
+    Background: #3a4a60(0.85)
+  )
+);
+
+@ArrowStyle = ButtonStyle(
+  Default: (
+    Background: #2a3a4a(0.7)
+  ),
+  Hovered: (
+    Background: #3a5060(0.85)
+  ),
+  Pressed: (
+    Background: #4a6070(0.95)
+  )
+);
+
+@ArrowDisabledStyle = ButtonStyle(
+  Default: (
+    Background: #1a2535(0.3)
+  ),
+  Hovered: (
+    Background: #1a2535(0.3)
+  ),
+  Pressed: (
+    Background: #1a2535(0.3)
+  )
+);
+
+@LabelStyle = LabelStyle(
+  ...$C.@DefaultLabelStyle,
+  FontSize: 13,
+  TextColor: #c0d0e0,
+  VerticalAlignment: Center,
+  Wrap: true
+);
+
+@IndexLabelStyle = LabelStyle(
+  ...$C.@DefaultLabelStyle,
+  FontSize: 12,
+  TextColor: #8090a0,
+  HorizontalAlignment: Center,
+  VerticalAlignment: Center
+);
+
+@QuantityLabelStyle = LabelStyle(
+  ...$C.@DefaultLabelStyle,
+  FontSize: 11,
+  TextColor: #90a0b0,
+  VerticalAlignment: Center
+);
+
+Group {
+  LayoutMode: Left;
+  Anchor: (Height: 56, Bottom: 6);
+  Background: #1a2535(0.5);
+  Padding: (Full: 8);
+
+  // Index number
+  Group {
+    Anchor: (Width: 32);
+    LayoutMode: Middle;
+
+    Label #IndexLabel {
+      Style: @IndexLabelStyle;
+    }
+  }
+
+  // Item icon
+  ItemIcon #ItemIcon {
+    Anchor: (Width: 40, Height: 40, Right: 12);
+  }
+
+  // Item name and quantity
+  Group {
+    FlexWeight: 1;
+    LayoutMode: Top;
+    Padding: (Vertical: 4);
+
+    Label #ItemNameLabel {
+      Style: @LabelStyle;
+      Anchor: (Height: 20);
+    }
+
+    Label #QuantityLabel {
+      Style: @QuantityLabelStyle;
+      Anchor: (Height: 16);
+    }
+  }
+
+  // Move up button
+  Button #MoveUpButton {
+    Style: @ArrowStyle;
+    Anchor: (Width: 48, Height: 36, Right: 4);
+    LayoutMode: Middle;
+
+    Label {
+      Style: LabelStyle(...$C.@DefaultLabelStyle, FontSize: 12, HorizontalAlignment: Center);
+      Text: "Up";
+    }
+  }
+
+  // Move down button
+  Button #MoveDownButton {
+    Style: @ArrowStyle;
+    Anchor: (Width: 48, Height: 36);
+    LayoutMode: Middle;
+
+    Label {
+      Style: LabelStyle(...$C.@DefaultLabelStyle, FontSize: 12, HorizontalAlignment: Center);
+      Text: "Down";
+    }
+  }
+}

@@ -1,0 +1,108 @@
+$C = "../Common.ui";
+$Sounds = "../Sounds.ui";
+
+@InputLabel = Label {
+  Anchor: (Bottom: 8);
+  Style: $C.@DefaultLabelStyle;
+};
+
+$C.@PageOverlay {
+  LayoutMode: Middle;
+
+  $C.@DecoratedContainer {
+    Anchor: (Width: 420);
+
+    #Title {
+      Group {
+        Label #TitleLabel {
+          Style: $C.@TitleStyle;
+          Padding: (Horizontal: 19);
+          Text: %exampleplugin.ui.register.title;
+        }
+      }
+    }
+
+    #Content {
+      LayoutMode: Top;
+      Padding: (Full: 16);
+
+      // Username field
+      Group {
+        LayoutMode: Top;
+        Anchor: (Bottom: 16);
+
+        @InputLabel #UsernameLabel {
+          Text: %exampleplugin.ui.register.username;
+        }
+
+        $C.@TextField #UsernameInput {
+          PlaceholderText: %exampleplugin.ui.register.username.placeholder;
+        }
+      }
+
+      // Email field
+      Group {
+        LayoutMode: Top;
+        Anchor: (Bottom: 16);
+
+        @InputLabel #EmailLabel {
+          Text: %exampleplugin.ui.register.email;
+        }
+
+        $C.@TextField #EmailInput {
+          PlaceholderText: %exampleplugin.ui.register.email.placeholder;
+        }
+      }
+
+      // Password field
+      Group {
+        LayoutMode: Top;
+        Anchor: (Bottom: 16);
+
+        @InputLabel #PasswordLabel {
+          Text: %exampleplugin.ui.register.password;
+        }
+
+        $C.@TextField #PasswordInput {
+          PlaceholderText: %exampleplugin.ui.register.password.placeholder;
+          PasswordChar: "*";
+        }
+      }
+
+      // Error label (hidden by default)
+      Label #ErrorLabel {
+        Style: LabelStyle(...$C.@DefaultLabelStyle, TextColor: #ff6b6b);
+        Anchor: (Bottom: 8);
+        Visible: false;
+      }
+
+      // Separator
+      Group {
+        Anchor: (Vertical: 8, Height: 1);
+        Background: #5e512c(0.4);
+      }
+
+      // Buttons
+      Group {
+        LayoutMode: Center;
+        Anchor: (Top: 8);
+
+        $C.@SecondaryTextButton #ClearButton {
+          @Text = %exampleplugin.ui.register.clear;
+          @Sounds = $Sounds.@ButtonsCancel;
+          @Anchor = (Right: 4);
+          FlexWeight: 1;
+        }
+
+        $C.@TextButton #SendButton {
+          @Text = %exampleplugin.ui.register.send;
+          @Sounds = $Sounds.@SaveSettings;
+          @Anchor = (Left: 4);
+          FlexWeight: 1;
+        }
+      }
+    }
+  }
+}
+
+$C.@BackButton {}

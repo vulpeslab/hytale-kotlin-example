@@ -1,0 +1,44 @@
+$C = "../Common.ui";
+
+@FilterStyle = ButtonStyle(
+  Default: (
+    Background: #1a2535(0.7)
+  ),
+  Hovered: (
+    Background: #2a3a50(0.85)
+  ),
+  Pressed: (
+    Background: #3a4a60(0.95)
+  )
+);
+
+@FilterActiveStyle = ButtonStyle(
+  Default: (
+    Background: #2a5040(0.85)
+  ),
+  Hovered: (
+    Background: #3a6855(0.95)
+  ),
+  Pressed: (
+    Background: #4a7865(1.0)
+  )
+);
+
+@FilterLabelStyle = LabelStyle(
+  ...$C.@DefaultLabelStyle,
+  FontSize: 12,
+  TextColor: #c0d0e0,
+  HorizontalAlignment: Center,
+  VerticalAlignment: Center
+);
+
+Button {
+  Style: @FilterStyle;
+  Anchor: (Height: 28, Right: 4);
+  Padding: (Horizontal: 12, Vertical: 4);
+  LayoutMode: Middle;
+
+  Label #FilterLabel {
+    Style: @FilterLabelStyle;
+  }
+}

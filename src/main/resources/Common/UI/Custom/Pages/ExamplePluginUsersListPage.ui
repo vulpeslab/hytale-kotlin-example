@@ -1,0 +1,33 @@
+$C = "../Common.ui";
+
+$C.@PageOverlay {
+  LayoutMode: Middle;
+
+  $C.@DecoratedContainer {
+    Anchor: (Width: 700, Height: 600);
+
+    #Title {
+      Group {
+        Label #TitleLabel {
+          Style: $C.@TitleStyle;
+          Padding: (Horizontal: 19);
+          Text: %exampleplugin.ui.users.title;
+        }
+      }
+    }
+
+    #Content {
+      LayoutMode: Top;
+      Padding: (Full: 24);
+
+      // Scrollable user list
+      Group #UserList {
+        Anchor: (Height: 480);
+        LayoutMode: TopScrolling;
+        ScrollbarStyle: $C.@DefaultScrollbarStyle;
+      }
+    }
+  }
+}
+
+$C.@BackButton {}

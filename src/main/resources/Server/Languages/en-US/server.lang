@@ -1,0 +1,4 @@
+# === ExamplePlugin Server Translations (English) ===
+
+# NPC Roles
+npcRoles.ExamplePlugin_Trader.name = Trader

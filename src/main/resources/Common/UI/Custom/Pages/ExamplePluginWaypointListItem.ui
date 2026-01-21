@@ -1,0 +1,144 @@
+$C = "../Common.ui";
+$Sounds = "../Sounds.ui";
+
+@LabelStyle = LabelStyle(
+  ...$C.@DefaultLabelStyle,
+  FontSize: 18,
+  HorizontalAlignment: Start,
+  RenderBold: true
+);
+
+@MutedLabelStyle = LabelStyle(
+  ...$C.@DefaultLabelStyle,
+  FontSize: 12,
+  HorizontalAlignment: Start,
+  TextColor: #8090a0
+);
+
+@TeleportButtonStyle = ButtonStyle(
+  Default: (
+    Background: #2a5a3a(0.8)
+  ),
+  Hovered: (
+    Background: #3a7a4a(0.9)
+  ),
+  Pressed: (
+    Background: #4a8a5a(1.0)
+  )
+);
+
+@UpdateButtonStyle = ButtonStyle(
+  Default: (
+    Background: #3a4a5a(0.8)
+  ),
+  Hovered: (
+    Background: #4a5a6a(0.9)
+  ),
+  Pressed: (
+    Background: #5a6a7a(1.0)
+  )
+);
+
+@DeleteButtonStyle = ButtonStyle(
+  Default: (
+    Background: #5a3a3a(0.8)
+  ),
+  Hovered: (
+    Background: #7a4a4a(0.9)
+  ),
+  Pressed: (
+    Background: #8a5a5a(1.0)
+  )
+);
+
+Group {
+  Anchor: (Bottom: 12, Height: 80);
+  Background: #1a2535(0.5);
+  Padding: (Full: 16);
+
+  Group {
+    LayoutMode: Left;
+
+    // Waypoint info section
+    Group {
+      FlexWeight: 1;
+      LayoutMode: Top;
+
+      // Waypoint name row
+      Group {
+        LayoutMode: Left;
+        Anchor: (Bottom: 6, Height: 24);
+
+        Label #WaypointNameLabel {
+          Style: @LabelStyle;
+        }
+      }
+
+      // Coordinates row
+      Group {
+        LayoutMode: Left;
+        Anchor: (Bottom: 4, Height: 18);
+
+        Label #WaypointCoordsLabel {
+          Style: @MutedLabelStyle;
+        }
+      }
+
+      // World row
+      Group {
+        LayoutMode: Left;
+        Anchor: (Height: 18);
+
+        Label #WaypointWorldLabel {
+          Style: LabelStyle(...@MutedLabelStyle, TextColor: #6080a0);
+        }
+      }
+    }
+
+    // Action buttons - centered vertically, aligned right
+    Group {
+      LayoutMode: Middle;
+      Padding: (Left: 16);
+
+      Group {
+        LayoutMode: Left;
+        Anchor: (Height: 28);
+
+        Button #TeleportButton {
+          Style: @TeleportButtonStyle;
+          Anchor: (Right: 6);
+          Padding: (Horizontal: 14, Vertical: 6);
+          LayoutMode: Middle;
+
+          Label {
+            Style: LabelStyle(...$C.@DefaultLabelStyle, FontSize: 12, HorizontalAlignment: Center);
+            Text: %exampleplugin.ui.waypoints.teleport;
+          }
+        }
+
+        Button #UpdateButton {
+          Style: @UpdateButtonStyle;
+          Anchor: (Right: 6);
+          Padding: (Horizontal: 14, Vertical: 6);
+          LayoutMode: Middle;
+
+          Label {
+            Style: LabelStyle(...$C.@DefaultLabelStyle, FontSize: 12, HorizontalAlignment: Center);
+            Text: %exampleplugin.ui.waypoints.update;
+          }
+        }
+
+        Button #DeleteButton {
+          Style: @DeleteButtonStyle;
+          Padding: (Horizontal: 14, Vertical: 6);
+          LayoutMode: Middle;
+
+          Label {
+            Style: LabelStyle(...$C.@DefaultLabelStyle, FontSize: 12, HorizontalAlignment: Center);
+            Text: %exampleplugin.ui.waypoints.delete;
+          }
+        }
+      }
+    }
+  }
+}

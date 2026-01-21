@@ -1,0 +1,21 @@
+Group #DefenseHud {
+  LayoutMode: Bottom;
+  Anchor: (Bottom: 134, Width: 318, Height: 12);
+
+  Group {
+    Anchor: (Full: 0);
+    Background: #1a2535;
+
+    ProgressBar #DefenseBar {
+      Anchor: (Full: 0);
+      BarTexturePath: "../Textures/ExamplePluginDefenseBarFill.png";
+      Value: 0.5;
+    }
+
+    Label #DefenseValue {
+      Anchor: (Full: 0);
+      Style: (FontSize: 10, TextColor: #ffffff, HorizontalAlignment: Center, VerticalAlignment: Center);
+      Text: "0%";
+    }
+  }
+}

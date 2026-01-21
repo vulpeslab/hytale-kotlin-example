@@ -1,0 +1,7 @@
+{
+  "Name": "gma",
+  "Description": "Switch to Adventure mode",
+  "Commands": [
+    "gamemode adventure"
+  ]
+}

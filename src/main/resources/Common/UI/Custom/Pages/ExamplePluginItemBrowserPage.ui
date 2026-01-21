@@ -1,0 +1,246 @@
+$C = "../Common.ui";
+$Sounds = "../Sounds.ui";
+
+@BackButtonStyle = ButtonStyle(
+  Default: (
+    Background: #2a3545(0.8)
+  ),
+  Hovered: (
+    Background: #3a4860(0.9)
+  ),
+  Pressed: (
+    Background: #4a5870(1.0)
+  )
+);
+
+@ConfirmButtonStyle = ButtonStyle(
+  Default: (
+    Background: #2a5040(0.85)
+  ),
+  Hovered: (
+    Background: #3a6855(0.95)
+  ),
+  Pressed: (
+    Background: #4a7865(1.0)
+  )
+);
+
+@RemoveButtonStyle = ButtonStyle(
+  Default: (
+    Background: #502a2a(0.85)
+  ),
+  Hovered: (
+    Background: #683a3a(0.95)
+  ),
+  Pressed: (
+    Background: #784a4a(1.0)
+  )
+);
+
+@SearchButtonStyle = ButtonStyle(
+  Default: (
+    Background: #2a4a5a(0.8)
+  ),
+  Hovered: (
+    Background: #3a6070(0.9)
+  ),
+  Pressed: (
+    Background: #4a7080(1.0)
+  )
+);
+
+
+$C.@PageOverlay {
+  LayoutMode: Middle;
+
+  $C.@DecoratedContainer {
+    Anchor: (Width: 1100, Height: 700);
+
+    #Title {
+      Group {
+        LayoutMode: Left;
+        Padding: (Horizontal: 19);
+
+        Label {
+          Style: $C.@TitleStyle;
+          Text: %exampleplugin.ui.kits.browser.title;
+        }
+
+        Label #KitNameLabel {
+          Style: LabelStyle(...$C.@TitleStyle, RenderBold: true);
+          Padding: (Left: 8);
+        }
+
+        Group {
+          FlexWeight: 1;
+        }
+
+        $C.@HeaderSearch {}
+      }
+    }
+
+    #Content {
+      LayoutMode: Left;
+      Padding: (Full: 24);
+
+      // Left side - item grid
+      Group {
+        Anchor: (Width: 820);
+        LayoutMode: Top;
+
+
+        // Filter bar
+        Group #FilterBar {
+          LayoutMode: Left;
+          Anchor: (Height: 36, Bottom: 10);
+          Background: #0a1018(0.3);
+          Padding: (Full: 4);
+        }
+
+        // Scrollable item grid
+        Group #ItemGrid {
+          Anchor: (Height: 500);
+          LayoutMode: TopScrolling;
+          ScrollbarStyle: $C.@DefaultScrollbarStyle;
+          Background: #0a1018(0.4);
+          Padding: (Full: 10);
+        }
+
+        // Bottom row - back + order buttons under the items list
+        Group {
+          LayoutMode: Left;
+          Anchor: (Top: 12, Height: 48);
+
+          Button #BackButton {
+            Style: @BackButtonStyle;
+            Padding: (Horizontal: 20, Vertical: 12);
+            LayoutMode: Middle;
+
+            Label {
+              Style: LabelStyle(...$C.@DefaultLabelStyle, FontSize: 14, HorizontalAlignment: Center);
+              Text: %exampleplugin.ui.kits.back;
+            }
+          }
+
+          Group { FlexWeight: 1; }
+
+          Button #OrderKitButton {
+            Style: @SearchButtonStyle;
+            Anchor: (Height: 44);
+            Padding: (Full: 12);
+
+            Label {
+              Style: LabelStyle(...$C.@DefaultLabelStyle, FontSize: 14, TextColor: #b0d0e0);
+              Text: %exampleplugin.ui.kits.order;
+            }
+          }
+        }
+      }
+
+      // Vertical separator
+      Group {
+        Anchor: (Width: 1, Left: 20, Right: 20);
+        Background: #5e512c(0.3);
+      }
+
+      // Right side - selected item editor panel
+      Group #EditorPanel {
+        FlexWeight: 1;
+        LayoutMode: Top;
+        Padding: (Full: 12);
+
+        Label {
+          Style: LabelStyle(...$C.@TitleStyle, FontSize: 17);
+          Anchor: (Bottom: 20);
+          Text: %exampleplugin.ui.kits.quantity.title;
+        }
+
+        // Selected item display
+        Group #SelectedItemDisplay {
+          Visible: false;
+          LayoutMode: Top;
+
+          // Item preview
+          Group {
+            Anchor: (Height: 100, Bottom: 16);
+            LayoutMode: Middle;
+
+            Group {
+              Anchor: (Width: 88, Height: 88);
+              Background: #1a2535(0.6);
+              LayoutMode: Middle;
+
+              ItemIcon #SelectedItemIcon {
+                Anchor: (Width: 72, Height: 72);
+              }
+            }
+          }
+
+          // Item name
+          Label #SelectedItemName {
+            Style: LabelStyle(...$C.@DefaultLabelStyle, FontSize: 13, TextColor: #90b0d0, HorizontalAlignment: Center);
+            Anchor: (Bottom: 20);
+          }
+
+          // Quantity input
+          Group {
+            LayoutMode: Top;
+            Anchor: (Bottom: 16);
+
+            Label {
+              Style: LabelStyle(...$C.@DefaultLabelStyle, FontSize: 13, TextColor: #7090b0);
+              Anchor: (Bottom: 8);
+              Text: %exampleplugin.ui.kits.quantity.label;
+            }
+
+            $C.@TextField #QuantityInput {
+              PlaceholderText: "1";
+              Anchor: (Height: 44);
+            }
+          }
+
+          // Action buttons
+          Group {
+            LayoutMode: Top;
+            Anchor: (Top: 12);
+
+            Button #QuantityConfirmButton {
+              Style: @ConfirmButtonStyle;
+              Anchor: (Height: 44, Bottom: 10);
+              Padding: (Full: 12);
+
+              Label {
+                Style: LabelStyle(...$C.@DefaultLabelStyle, FontSize: 14, TextColor: #b0e0c0);
+                Text: %exampleplugin.ui.kits.quantity.confirm;
+              }
+            }
+
+            Button #RemoveFromKitButton {
+              Style: @RemoveButtonStyle;
+              Anchor: (Height: 44);
+              Padding: (Full: 12);
+
+              Label {
+                Style: LabelStyle(...$C.@DefaultLabelStyle, FontSize: 14, TextColor: #e0b0b0);
+                Text: %exampleplugin.ui.kits.remove;
+              }
+            }
+          }
+        }
+
+        // Placeholder when no item selected
+        Group #NoSelectionPlaceholder {
+          Visible: true;
+          LayoutMode: Middle;
+          FlexWeight: 1;
+
+          Label {
+            Style: LabelStyle(...$C.@DefaultLabelStyle, FontSize: 13, TextColor: #506070, HorizontalAlignment: Center);
+            Text: %exampleplugin.ui.kits.browser.selectitem;
+          }
+        }
+
+      }
+    }
+  }
+}

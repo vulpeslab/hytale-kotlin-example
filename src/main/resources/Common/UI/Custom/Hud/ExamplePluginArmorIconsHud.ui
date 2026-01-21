@@ -1,0 +1,97 @@
+Group #ArmorIconsHud {
+  LayoutMode: Bottom;
+  Anchor: (Bottom: 154, Width: 216, Height: 52);
+
+  Group {
+    Anchor: (Full: 0);
+    LayoutMode: Left;
+
+    Group {
+      Anchor: (Width: 48, Height: 52, Right: 4);
+
+      Group {
+        Anchor: (Width: 48, Height: 48, Top: 0);
+        Background: #1a2535(0.6);
+
+        ItemIcon #ArmorSlotHead {
+          Anchor: (Full: 2);
+          Visible: false;
+        }
+      }
+
+      ProgressBar #DurabilityHead {
+        Anchor: (Width: 48, Height: 4, Bottom: 0);
+        BarTexturePath: "../Textures/ExamplePluginDefenseBarFill.png";
+        Background: #1a2535;
+        Value: 1.0;
+        Visible: false;
+      }
+    }
+
+    Group {
+      Anchor: (Width: 48, Height: 52, Right: 4);
+
+      Group {
+        Anchor: (Width: 48, Height: 48, Top: 0);
+        Background: #1a2535(0.6);
+
+        ItemIcon #ArmorSlotChest {
+          Anchor: (Full: 2);
+          Visible: false;
+        }
+      }
+
+      ProgressBar #DurabilityChest {
+        Anchor: (Width: 48, Height: 4, Bottom: 0);
+        BarTexturePath: "../Textures/ExamplePluginDefenseBarFill.png";
+        Background: #1a2535;
+        Value: 1.0;
+        Visible: false;
+      }
+    }
+
+    Group {
+      Anchor: (Width: 48, Height: 52, Right: 4);
+
+      Group {
+        Anchor: (Width: 48, Height: 48, Top: 0);
+        Background: #1a2535(0.6);
+
+        ItemIcon #ArmorSlotHands {
+          Anchor: (Full: 2);
+          Visible: false;
+        }
+      }
+
+      ProgressBar #DurabilityHands {
+        Anchor: (Width: 48, Height: 4, Bottom: 0);
+        BarTexturePath: "../Textures/ExamplePluginDefenseBarFill.png";
+        Background: #1a2535;
+        Value: 1.0;
+        Visible: false;
+      }
+    }
+
+    Group {
+      Anchor: (Width: 48, Height: 52);
+
+      Group {
+        Anchor: (Width: 48, Height: 48, Top: 0);
+        Background: #1a2535(0.6);
+
+        ItemIcon #ArmorSlotLegs {
+          Anchor: (Full: 2);
+          Visible: false;
+        }
+      }
+
+      ProgressBar #DurabilityLegs {
+        Anchor: (Width: 48, Height: 4, Bottom: 0);
+        BarTexturePath: "../Textures/ExamplePluginDefenseBarFill.png";
+        Background: #1a2535;
+        Value: 1.0;
+        Visible: false;
+      }
+    }
+  }
+}

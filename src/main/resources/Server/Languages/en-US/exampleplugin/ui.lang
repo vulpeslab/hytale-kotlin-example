@@ -1,0 +1,114 @@
+# === ExamplePlugin UI Translations (English) ===
+
+# Notifications
+fly.reminder = Flight mode is active.
+god.reminder = God mode is active. You are invulnerable.
+
+translated.title = Translated UI Example
+translated.description = This text is translated based on the player's language setting.
+
+# Register UI
+register.title = Registration Form
+register.username = Username
+register.username.placeholder = Enter your username
+register.email = Email
+register.email.placeholder = Enter your email
+register.password = Password
+register.password.placeholder = Enter your password
+register.clear = Clear
+register.send = Send
+register.success = Registration successful!
+register.error.generic = An error occurred. Please try again.
+register.error.alreadyregistered = You already have a registered account.
+
+# Login UI
+login.title = Login
+login.username = Username
+login.username.placeholder = Enter your username
+login.password = Password
+login.password.placeholder = Enter your password
+login.submit = Login
+login.success = Login successful!
+login.failed = Invalid username or password.
+
+# Users Management UI
+users.title = User Management
+users.edit.title = Edit User
+users.edit.username = Username
+users.edit.username.placeholder = Enter new username
+users.edit.email = Email
+users.edit.email.placeholder = Enter new email
+users.edit.password = Password
+users.edit.password.placeholder = Enter new password
+users.edit.password.hint = Leave password empty to keep current
+users.edit.save = Save
+users.edit.cancel = Cancel
+users.edit.success = User updated successfully!
+
+# Lifetime Examples UI
+lifetime.title = Page Lifetime Example
+lifetime.close = Close
+lifetime.cantclose.description = This page uses CantClose lifetime. You cannot close it by pressing Escape or clicking outside. You must use the Close button below.
+lifetime.candismiss.description = This page uses CanDismiss lifetime. Press Escape to close this page. Clicking outside will NOT close it.
+lifetime.candismissorclose.description = This page uses CanDismissOrCloseThroughInteraction lifetime. Press Escape to close. The "interaction" behavior is client-side - it may close when performing other game actions.
+
+# Kit Management UI
+kits.title = Kit Management
+kits.newkit.placeholder = Enter kit name...
+kits.addkit = Add Kit
+kits.search = Search kits...
+kits.edit = Edit
+kits.rename = Rename
+kits.delete = Delete
+kits.created = Kit '{name}' created.
+kits.deleted = Kit '{name}' deleted.
+kits.exists = Kit '{name}' already exists.
+kits.renamed = Kit renamed to '{name}'.
+kits.rename.title = Rename Kit
+kits.rename.placeholder = Enter new name...
+kits.rename.confirm = Rename
+
+# Kit Editor UI
+kits.back = Back
+kits.remove = Remove
+kits.item.added = Added '{item}' to kit.
+kits.item.removed = Item removed from kit.
+
+# Item Browser UI
+kits.browser.title = Edit Kit:
+kits.browser.search = Search items...
+kits.browser.searchbtn = Search
+kits.browser.noresults = No items found.
+kits.browser.selectitem = Click an item to edit quantity
+
+# Quantity Editor
+kits.quantity.title = Edit Item
+kits.quantity.label = Quantity:
+kits.quantity.cancel = Cancel
+kits.quantity.confirm = Save
+kits.item.quantity = Set '{item}' quantity to {quantity}.
+
+# Kit Ordering UI
+kits.order = Order Items
+kits.order.title = Order Items in Kit:
+kits.order.hint = Use the arrows to reorder items in the kit.
+
+# Waypoints UI
+waypoints.title = Waypoints
+waypoints.add.placeholder = Waypoint name...
+waypoints.add.button = Add at current position
+waypoints.empty = No waypoints yet
+waypoints.emptyname = Please enter a waypoint name.
+waypoints.created = Waypoint '{name}' created.
+waypoints.updated = Waypoint '{name}' updated to current position.
+waypoints.deleted = Waypoint '{name}' deleted.
+waypoints.exists = Waypoint '{name}' already exists.
+waypoints.search = Search waypoints...
+waypoints.teleport = Teleport
+waypoints.update = Update
+waypoints.delete = Delete
+
+# Update Notifications
+update.prefix = [{name}]
+update.available = Update available:
+update.download = Download:

@@ -1,0 +1,84 @@
+# === ExamplePlugin Command Translations (German) ===
+
+# Fly Command
+fly.description = Flugmodus umschalten
+fly.enabled = Flugmodus aktiviert.
+fly.disabled = Flugmodus deaktiviert.
+
+# God Command
+god.description = Gott-Modus umschalten (Unverwundbarkeit)
+god.enabled = Gott-Modus aktiviert. Du bist jetzt unverwundbar.
+god.disabled = Gott-Modus deaktiviert. Du bist jetzt verwundbar.
+
+# InvSee Command
+invsee.description = Inventar eines anderen Spielers anzeigen
+invsee.player.desc = Der Spieler dessen Inventar angezeigt werden soll
+invsee.notfound = Spieler nicht gefunden oder nicht in der Welt.
+
+# Kit Command
+kit.description = Ein Kit erhalten
+kit.name.desc = Der Name des Kits
+kit.notfound = Kit '{name}' nicht gefunden.
+kit.empty = Kit '{name}' ist leer.
+kit.nopermission = Du hast keine Berechtigung für Kit '{name}'.
+kit.received = Du hast Kit '{name}' erhalten ({count} Gegenstände).
+
+# EditKit Command
+editkit.description = Kits bearbeiten oder verwalten
+editkit.name.desc = Der Name des Kits zum Bearbeiten (optional)
+editkit.notfound = Kit '{name}' nicht gefunden.
+
+# Back Command
+back.description = Zum letzten Todesort teleportieren
+back.success = Zum Todesort teleportiert.
+back.nodeath = Du hast keinen Todesort zum Teleportieren.
+back.differentworld = Dein Todesort ist in einer anderen Welt ({world}).
+back.error = Ein Fehler ist aufgetreten.
+
+# ClearInventory Command
+clearinventory.description = Inventar leeren
+clearinventory.success = Inventar geleert.
+
+# Waypoint Command
+waypoint.description = Zu einem Wegpunkt teleportieren
+waypoint.name.desc = Name des Wegpunkts
+waypoint.notfound = Wegpunkt '{name}' nicht gefunden.
+waypoint.nopermission = Du hast keine Berechtigung für Wegpunkt '{name}'.
+waypoint.teleported = Zum Wegpunkt '{name}' teleportiert.
+waypoint.differentworld = Wegpunkt '{name}' ist in einer anderen Welt ({world}).
+
+# Waypoints Command (admin)
+waypoints.description = Server-Wegpunkte verwalten
+
+# EditKits Command
+editkits.description = Kits anzeigen und verwalten
+
+# Example Command
+example.description = Beispiel-Plugin Befehle
+example.info.description = Plugin-Informationen anzeigen
+example.info.name = {name}
+example.info.version = v{version}
+example.info.author = Autor: {author}
+example.info.github = GitHub:
+example.info.update.checking = Suche nach Updates...
+example.info.update.failed = Update-Prüfung fehlgeschlagen
+example.info.update.available = Update verfügbar:
+example.info.update.download = Download:
+example.info.update.latest = Du verwendest die neueste Version!
+
+# Repair Command
+repair.description = Gegenstand in der Hand reparieren
+repair.notHoldingItem = Du hältst keinen Gegenstand.
+repair.notDurable = Der Gegenstand hat keine Haltbarkeit oder ist unzerstörbar.
+repair.success = Dein Gegenstand wurde repariert: {item}
+
+# Suicide Command
+suicide.description = Dich selbst töten
+suicide.success = Du bist gestorben.
+
+# Example Durability Subcommand
+example.durability.description = Haltbarkeit des gehaltenen Gegenstands setzen
+example.durability.amount.desc = Haltbarkeitswert (0 bis Max)
+example.durability.notHoldingItem = Du hältst keinen Gegenstand.
+example.durability.notDurable = Der Gegenstand hat keine Haltbarkeit oder ist unzerstörbar.
+example.durability.set = Haltbarkeit des Gegenstands auf {value} gesetzt

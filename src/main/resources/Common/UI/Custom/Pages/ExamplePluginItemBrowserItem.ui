@@ -1,0 +1,80 @@
+$C = "../Common.ui";
+
+// Style for items not in kit - subtle dark background
+@NotAddedStyle = ButtonStyle(
+  Default: (
+    Background: #1a2030(0.7)
+  ),
+  Hovered: (
+    Background: #2a3545(0.85)
+  ),
+  Pressed: (
+    Background: #3a4555(0.95)
+  )
+);
+
+// Green style for items already in kit - vibrant green glow
+@AddedStyle = ButtonStyle(
+  Default: (
+    Background: #1a3a25(0.8)
+  ),
+  Hovered: (
+    Background: #2a5535(0.9)
+  ),
+  Pressed: (
+    Background: #3a6545(1.0)
+  )
+);
+
+@LabelStyle = LabelStyle(
+  ...$C.@DefaultLabelStyle,
+  FontSize: 11,
+  TextColor: #c0d0e0,
+  HorizontalAlignment: Center,
+  Wrap: true
+);
+
+@QuantityLabelStyle = LabelStyle(
+  ...$C.@DefaultLabelStyle,
+  FontSize: 11,
+  TextColor: #ffffff,
+  RenderBold: true,
+  HorizontalAlignment: Center,
+  VerticalAlignment: Center
+);
+
+Button #ItemButton {
+  Style: @NotAddedStyle;
+  Anchor: (Width: 122, Right: 6, Bottom: 6);
+  Padding: (Full: 6);
+
+  Group {
+    LayoutMode: Top;
+
+    // Item icon container with quantity badge
+    Group {
+      Anchor: (Width: 64, Height: 64, Bottom: 4);
+
+      ItemIcon #ItemIcon {
+        Anchor: (Full: 0);
+      }
+
+      // Quantity badge in bottom-right corner
+      Group #QuantityBadge {
+        Visible: false;
+        Anchor: (Width: 26, Height: 20, Right: -2, Bottom: -2);
+        Background: #1a1a1a(0.9);
+        LayoutMode: Middle;
+
+        Label #QuantityLabel {
+          Style: @QuantityLabelStyle;
+        }
+      }
+    }
+
+    Label #ItemNameLabel {
+      Style: @LabelStyle;
+      Anchor: (Height: 28);
+    }
+  }
+}

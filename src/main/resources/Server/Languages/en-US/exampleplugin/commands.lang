@@ -1,0 +1,84 @@
+# === ExamplePlugin Command Translations (English) ===
+
+# Fly Command
+fly.description = Toggle flight mode
+fly.enabled = Flight mode enabled.
+fly.disabled = Flight mode disabled.
+
+# God Command
+god.description = Toggle god mode (invulnerability)
+god.enabled = God mode enabled. You are now invulnerable.
+god.disabled = God mode disabled. You are now vulnerable.
+
+# InvSee Command
+invsee.description = View another player's inventory
+invsee.player.desc = The player whose inventory to view
+invsee.notfound = Player not found or not in world.
+
+# Kit Command
+kit.description = Receive a kit
+kit.name.desc = The name of the kit to receive
+kit.notfound = Kit '{name}' not found.
+kit.empty = Kit '{name}' is empty.
+kit.nopermission = You don't have permission to use kit '{name}'.
+kit.received = You received kit '{name}' ({count} items).
+
+# EditKit Command
+editkit.description = Edit or manage kits
+editkit.name.desc = The name of the kit to edit (optional)
+editkit.notfound = Kit '{name}' not found.
+
+# Back Command
+back.description = Teleport to your last death location
+back.success = Teleported to your death location.
+back.nodeath = You have no death location to teleport to.
+back.differentworld = Your death location is in a different world ({world}).
+back.error = An error occurred.
+
+# ClearInventory Command
+clearinventory.description = Clear your inventory
+clearinventory.success = Inventory cleared.
+
+# Waypoint Command
+waypoint.description = Teleport to a waypoint
+waypoint.name.desc = Name of the waypoint
+waypoint.notfound = Waypoint '{name}' not found.
+waypoint.nopermission = You don't have permission to use waypoint '{name}'.
+waypoint.teleported = Teleported to waypoint '{name}'.
+waypoint.differentworld = Waypoint '{name}' is in a different world ({world}).
+
+# Waypoints Command (admin)
+waypoints.description = Manage server waypoints
+
+# EditKits Command
+editkits.description = View and manage kits
+
+# Example Command
+example.description = Example plugin commands
+example.info.description = Show plugin info
+example.info.name = {name}
+example.info.version = v{version}
+example.info.author = Author: {author}
+example.info.github = GitHub:
+example.info.update.checking = Checking for updates...
+example.info.update.failed = Failed to check for updates
+example.info.update.available = Update available:
+example.info.update.download = Download:
+example.info.update.latest = You're running the latest version!
+
+# Repair Command
+repair.description = Repair the item in your hand
+repair.notHoldingItem = You are not holding an item.
+repair.notDurable = The held item has no durability or is unbreakable.
+repair.success = Repaired your held item: {item}
+
+# Suicide Command
+suicide.description = Kill yourself
+suicide.success = You died.
+
+# Example Durability Subcommand
+example.durability.description = Set the durability of the held item
+example.durability.amount.desc = Durability amount (0 to max)
+example.durability.notHoldingItem = You are not holding an item.
+example.durability.notDurable = The held item has no durability or is unbreakable.
+example.durability.set = Set held item durability to {value}

@@ -1,0 +1,116 @@
+$C = "../Common.ui";
+$Sounds = "../Sounds.ui";
+
+@SearchButtonStyle = ButtonStyle(
+  Default: (
+    Background: #2a4a5a(0.8)
+  ),
+  Hovered: (
+    Background: #3a6070(0.9)
+  ),
+  Pressed: (
+    Background: #4a7080(1.0)
+  )
+);
+
+@AddButtonStyle = ButtonStyle(
+  Default: (
+    Background: #2a5a6a(0.9)
+  ),
+  Hovered: (
+    Background: #3a7080(0.95)
+  ),
+  Pressed: (
+    Background: #4a8090(1.0)
+  )
+);
+
+$C.@PageOverlay {
+  LayoutMode: Middle;
+
+  $C.@DecoratedContainer {
+    Anchor: (Width: 900, Height: 650);
+
+    #Title {
+      Group {
+        LayoutMode: Left;
+        Padding: (Horizontal: 19);
+
+        Label #TitleLabel {
+          Style: $C.@TitleStyle;
+          Text: %exampleplugin.ui.waypoints.title;
+        }
+      }
+    }
+
+    #Content {
+      LayoutMode: Top;
+      Padding: (Full: 24);
+
+      // Top section: Add waypoint + Search
+      Group {
+        LayoutMode: Left;
+        Anchor: (Bottom: 8, Height: 36);
+
+        // Add new waypoint
+        $C.@TextField #NewWaypointNameInput {
+          PlaceholderText: %exampleplugin.ui.waypoints.add.placeholder;
+          Anchor: (Width: 250, Right: 10);
+        }
+
+        Button #AddWaypointButton {
+          Style: @AddButtonStyle;
+          Anchor: (Right: 28);
+          Padding: (Horizontal: 16, Vertical: 8);
+          LayoutMode: Middle;
+
+          Label {
+            Style: LabelStyle(...$C.@DefaultLabelStyle, FontSize: 13, RenderBold: true, HorizontalAlignment: Center);
+            Text: %exampleplugin.ui.waypoints.add.button;
+          }
+        }
+
+        // Search
+        $C.@TextField #SearchInput {
+          PlaceholderText: %exampleplugin.ui.waypoints.search;
+          FlexWeight: 1;
+          Anchor: (Right: 10);
+        }
+
+        Button #SearchButton {
+          Style: @SearchButtonStyle;
+          Padding: (Horizontal: 16, Vertical: 8);
+          LayoutMode: Middle;
+
+          Label {
+            Style: LabelStyle(...$C.@DefaultLabelStyle, FontSize: 13, HorizontalAlignment: Center);
+            Text: %exampleplugin.ui.kits.browser.searchbtn;
+          }
+        }
+      }
+
+      // Error label (hidden by default)
+      Label #ErrorLabel {
+        Style: LabelStyle(...$C.@DefaultLabelStyle, TextColor: #ff6b6b);
+        Anchor: (Bottom: 8);
+        Visible: false;
+      }
+
+      // Separator
+      Group {
+        Anchor: (Vertical: 14, Height: 1);
+        Background: #5e512c(0.4);
+      }
+
+      // Scrollable waypoint list
+      Group #WaypointList {
+        Anchor: (Height: 480);
+        LayoutMode: TopScrolling;
+        ScrollbarStyle: $C.@DefaultScrollbarStyle;
+        Padding: (Full: 6);
+      }
+    }
+  }
+}
+
+$C.@BackButton {}

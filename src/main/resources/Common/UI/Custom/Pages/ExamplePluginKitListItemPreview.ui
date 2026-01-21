@@ -1,0 +1,12 @@
+$C = "../Common.ui";
+
+// Small item icon for kit list preview
+Group {
+  Anchor: (Width: 40, Height: 40, Right: 4);
+  Background: #1a2030(0.6);
+  LayoutMode: Middle;
+
+  ItemIcon #ItemIcon {
+    Anchor: (Width: 32, Height: 32);
+  }
+}

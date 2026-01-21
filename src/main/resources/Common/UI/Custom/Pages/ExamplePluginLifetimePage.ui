@@ -1,0 +1,52 @@
+$C = "../Common.ui";
+
+$C.@PageOverlay #PageRoot {
+  LayoutMode: Middle;
+
+  $C.@DecoratedContainer {
+    Anchor: (Width: 500);
+
+    #Title {
+      Group {
+        Label #TitleLabel {
+          Style: $C.@TitleStyle;
+          Padding: (Horizontal: 19);
+        }
+      }
+    }
+
+    #Content {
+      LayoutMode: Top;
+      Padding: (Full: 16);
+
+      Label #LifetimeLabel {
+        Style: LabelStyle(...$C.@DefaultLabelStyle, FontSize: 18, RenderBold: true, TextColor: #ccb588);
+        Anchor: (Bottom: 12);
+      }
+
+      Label #Description {
+        Style: LabelStyle(...$C.@DefaultLabelStyle, Wrap: true);
+        Anchor: (Bottom: 16);
+      }
+
+      // Separator
+      Group {
+        Anchor: (Vertical: 8, Height: 1);
+        Background: #5e512c(0.4);
+      }
+
+      // Close button (only shown for certain lifetimes)
+      Group {
+        LayoutMode: Center;
+        Anchor: (Top: 8);
+
+        $C.@TextButton #CloseButton {
+          @Text = %exampleplugin.ui.lifetime.close;
+          FlexWeight: 1;
+        }
+      }
+    }
+  }
+}
+
+$C.@BackButton {}

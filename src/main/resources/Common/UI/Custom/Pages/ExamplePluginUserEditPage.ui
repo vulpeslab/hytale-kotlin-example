@@ -1,0 +1,108 @@
+$C = "../Common.ui";
+$Sounds = "../Sounds.ui";
+
+@InputLabel = Label {
+  Anchor: (Bottom: 8);
+  Style: $C.@DefaultLabelStyle;
+};
+
+$C.@PageOverlay #PageRoot {
+  LayoutMode: Middle;
+
+  $C.@DecoratedContainer {
+    Anchor: (Width: 420);
+
+    #Title {
+      Group {
+        Label #TitleLabel {
+          Style: $C.@TitleStyle;
+          Padding: (Horizontal: 19);
+          Text: %exampleplugin.ui.users.edit.title;
+        }
+      }
+    }
+
+    #Content {
+      LayoutMode: Top;
+      Padding: (Full: 16);
+
+      // Username field
+      Group {
+        LayoutMode: Top;
+        Anchor: (Bottom: 16);
+
+        @InputLabel #UsernameLabel {
+          Text: %exampleplugin.ui.users.edit.username;
+        }
+
+        $C.@TextField #UsernameInput {
+          PlaceholderText: %exampleplugin.ui.users.edit.username.placeholder;
+        }
+      }
+
+      // Email field
+      Group {
+        LayoutMode: Top;
+        Anchor: (Bottom: 16);
+
+        @InputLabel #EmailLabel {
+          Text: %exampleplugin.ui.users.edit.email;
+        }
+
+        $C.@TextField #EmailInput {
+          PlaceholderText: %exampleplugin.ui.users.edit.email.placeholder;
+        }
+      }
+
+      // Password field
+      Group {
+        LayoutMode: Top;
+        Anchor: (Bottom: 16);
+
+        @InputLabel #PasswordLabel {
+          Text: %exampleplugin.ui.users.edit.password;
+        }
+
+        $C.@TextField #PasswordInput {
+          PlaceholderText: %exampleplugin.ui.users.edit.password.placeholder;
+          PasswordChar: "*";
+        }
+      }
+
+      // Info text
+      Label #InfoLabel {
+        Style: LabelStyle(...$C.@DefaultLabelStyle, TextColor: #888888, FontSize: 12);
+        Anchor: (Bottom: 8);
+        Text: %exampleplugin.ui.users.edit.password.hint;
+      }
+
+      // Separator
+      Group {
+        Anchor: (Vertical: 8, Height: 1);
+        Background: #5e512c(0.4);
+      }
+
+      // Buttons
+      Group {
+        LayoutMode: Center;
+        Anchor: (Top: 8);
+
+        $C.@SecondaryTextButton #CancelButton {
+          @Text = %exampleplugin.ui.users.edit.cancel;
+          @Sounds = $Sounds.@ButtonsCancel;
+          @Anchor = (Right: 4);
+          FlexWeight: 1;
+        }
+
+        $C.@TextButton #SaveButton {
+          @Text = %exampleplugin.ui.users.edit.save;
+          @Sounds = $Sounds.@SaveSettings;
+          @Anchor = (Left: 4);
+          FlexWeight: 1;
+        }
+      }
+    }
+  }
+}
+
+$C.@BackButton {}

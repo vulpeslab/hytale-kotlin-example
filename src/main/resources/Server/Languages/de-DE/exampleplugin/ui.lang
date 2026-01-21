@@ -1,0 +1,114 @@
+# === ExamplePlugin UI Translations (German) ===
+
+# Notifications
+fly.reminder = Flugmodus ist aktiv.
+god.reminder = Gott-Modus ist aktiv. Du bist unverwundbar.
+
+translated.title = Übersetztes UI Beispiel
+translated.description = Dieser Text wird basierend auf der Spracheinstellung des Spielers übersetzt.
+
+# Register UI
+register.title = Registrierungsformular
+register.username = Benutzername
+register.username.placeholder = Benutzernamen eingeben
+register.email = E-Mail
+register.email.placeholder = E-Mail eingeben
+register.password = Passwort
+register.password.placeholder = Passwort eingeben
+register.clear = Leeren
+register.send = Senden
+register.success = Registrierung erfolgreich!
+register.error.generic = Ein Fehler ist aufgetreten. Bitte versuche es erneut.
+register.error.alreadyregistered = Du hast bereits ein registriertes Konto.
+
+# Login UI
+login.title = Anmelden
+login.username = Benutzername
+login.username.placeholder = Benutzernamen eingeben
+login.password = Passwort
+login.password.placeholder = Passwort eingeben
+login.submit = Anmelden
+login.success = Anmeldung erfolgreich!
+login.failed = Ungültiger Benutzername oder Passwort.
+
+# Users Management UI
+users.title = Benutzerverwaltung
+users.edit.title = Benutzer bearbeiten
+users.edit.username = Benutzername
+users.edit.username.placeholder = Neuen Benutzernamen eingeben
+users.edit.email = E-Mail
+users.edit.email.placeholder = Neue E-Mail eingeben
+users.edit.password = Passwort
+users.edit.password.placeholder = Neues Passwort eingeben
+users.edit.password.hint = Passwort leer lassen um es beizubehalten
+users.edit.save = Speichern
+users.edit.cancel = Abbrechen
+users.edit.success = Benutzer erfolgreich aktualisiert!
+
+# Lifetime Examples UI
+lifetime.title = Seitenlebensdauer Beispiel
+lifetime.close = Schließen
+lifetime.cantclose.description = Diese Seite verwendet CantClose. Du kannst sie nicht mit Escape oder durch Klicken außerhalb schließen. Du musst den Schließen-Button unten verwenden.
+lifetime.candismiss.description = Diese Seite verwendet CanDismiss. Drücke Escape um diese Seite zu schließen. Klicken außerhalb schließt sie NICHT.
+lifetime.candismissorclose.description = Diese Seite verwendet CanDismissOrCloseThroughInteraction. Drücke Escape zum Schließen. Das "Interaction"-Verhalten ist clientseitig - sie kann sich bei anderen Spielaktionen schließen.
+
+# Kit Management UI
+kits.title = Kit-Verwaltung
+kits.newkit.placeholder = Kit-Namen eingeben...
+kits.addkit = Kit hinzufügen
+kits.search = Kits suchen...
+kits.edit = Bearbeiten
+kits.rename = Umbenennen
+kits.delete = Löschen
+kits.created = Kit '{name}' erstellt.
+kits.deleted = Kit '{name}' gelöscht.
+kits.exists = Kit '{name}' existiert bereits.
+kits.renamed = Kit umbenannt zu '{name}'.
+kits.rename.title = Kit umbenennen
+kits.rename.placeholder = Neuen Namen eingeben...
+kits.rename.confirm = Umbenennen
+
+# Kit Editor UI
+kits.back = Zurück
+kits.remove = Entfernen
+kits.item.added = '{item}' zum Kit hinzugefügt.
+kits.item.removed = Gegenstand aus Kit entfernt.
+
+# Item Browser UI
+kits.browser.title = Kit bearbeiten:
+kits.browser.search = Gegenstände suchen...
+kits.browser.searchbtn = Suchen
+kits.browser.noresults = Keine Gegenstände gefunden.
+kits.browser.selectitem = Klicke einen Gegenstand um die Anzahl zu bearbeiten
+
+# Quantity Editor
+kits.quantity.title = Gegenstand bearbeiten
+kits.quantity.label = Anzahl:
+kits.quantity.cancel = Abbrechen
+kits.quantity.confirm = Speichern
+kits.item.quantity = Anzahl von '{item}' auf {quantity} gesetzt.
+
+# Kit Ordering UI
+kits.order = Gegenstände sortieren
+kits.order.title = Gegenstände im Kit sortieren:
+kits.order.hint = Verwende die Pfeile um Gegenstände im Kit neu zu ordnen.
+
+# Waypoints UI
+waypoints.title = Wegpunkte
+waypoints.add.placeholder = Wegpunktname...
+waypoints.add.button = An aktueller Position hinzufügen
+waypoints.empty = Noch keine Wegpunkte
+waypoints.emptyname = Bitte einen Wegpunktnamen eingeben.
+waypoints.created = Wegpunkt '{name}' erstellt.
+waypoints.updated = Wegpunkt '{name}' auf aktuelle Position aktualisiert.
+waypoints.deleted = Wegpunkt '{name}' gelöscht.
+waypoints.exists = Wegpunkt '{name}' existiert bereits.
+waypoints.search = Wegpunkte suchen...
+waypoints.teleport = Teleportieren
+waypoints.update = Aktualisieren
+waypoints.delete = Löschen
+
+# Update Notifications
+update.prefix = [{name}]
+update.available = Update verfügbar:
+update.download = Download:
