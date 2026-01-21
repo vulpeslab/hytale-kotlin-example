@@ -82,3 +82,6 @@ example.durability.amount.desc = Durability amount (0 to max)
 example.durability.notHoldingItem = You are not holding an item.
 example.durability.notDurable = The held item has no durability or is unbreakable.
 example.durability.set = Set held item durability to {value}
+
+# Holograms Command
+holograms.description = Manage floating text holograms

@@ -82,3 +82,6 @@ example.durability.amount.desc = Haltbarkeitswert (0 bis Max)
 example.durability.notHoldingItem = Du hältst keinen Gegenstand.
 example.durability.notDurable = Der Gegenstand hat keine Haltbarkeit oder ist unzerstörbar.
 example.durability.set = Haltbarkeit des Gegenstands auf {value} gesetzt
+
+# Holograms Command
+holograms.description = Schwebende Texthologramme verwalten

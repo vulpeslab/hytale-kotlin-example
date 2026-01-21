@@ -1,0 +1,167 @@
+$C = "../Common.ui";
+$Sounds = "../Sounds.ui";
+
+@CreateButtonStyle = ButtonStyle(
+  Default: (
+    Background: #2a5a6a(0.9)
+  ),
+  Hovered: (
+    Background: #3a7080(0.95)
+  ),
+  Pressed: (
+    Background: #4a8090(1.0)
+  )
+);
+
+@ConfirmButtonStyle = ButtonStyle(
+  Default: (
+    Background: #2a5040(0.85)
+  ),
+  Hovered: (
+    Background: #3a6855(0.95)
+  ),
+  Pressed: (
+    Background: #4a7865(1.0)
+  )
+);
+
+@CancelButtonStyle = ButtonStyle(
+  Default: (
+    Background: #502a2a(0.85)
+  ),
+  Hovered: (
+    Background: #683a3a(0.95)
+  ),
+  Pressed: (
+    Background: #784a4a(1.0)
+  )
+);
+
+$C.@PageOverlay {
+  LayoutMode: Middle;
+
+  $C.@DecoratedContainer {
+    Anchor: (Width: 900, Height: 620);
+
+    #Title {
+      Group {
+        LayoutMode: Left;
+        Padding: (Horizontal: 19);
+
+        Label #TitleLabel {
+          Style: $C.@TitleStyle;
+          Text: %exampleplugin.ui.holograms.title;
+        }
+      }
+    }
+
+    #Content {
+      LayoutMode: Top;
+      Padding: (Full: 24);
+
+      // Top section: Create hologram
+      Group {
+        LayoutMode: Left;
+        Anchor: (Bottom: 16, Height: 36);
+
+        // New hologram text input
+        $C.@TextField #NewHologramInput {
+          PlaceholderText: %exampleplugin.ui.holograms.placeholder;
+          FlexWeight: 1;
+          Anchor: (Right: 10);
+        }
+
+        Button #CreateButton {
+          Style: @CreateButtonStyle;
+          Padding: (Horizontal: 16, Vertical: 8);
+          LayoutMode: Middle;
+
+          Label {
+            Style: LabelStyle(...$C.@DefaultLabelStyle, FontSize: 13, RenderBold: true, HorizontalAlignment: Center);
+            Text: %exampleplugin.ui.holograms.create;
+          }
+        }
+      }
+
+      // Info text
+      Group {
+        Anchor: (Bottom: 8, Height: 20);
+
+        Label {
+          Style: LabelStyle(...$C.@DefaultLabelStyle, FontSize: 11, TextColor: #7090a0);
+          Text: %exampleplugin.ui.holograms.info;
+        }
+      }
+
+      // Separator
+      Group {
+        Anchor: (Vertical: 14, Height: 1);
+        Background: #5e512c(0.4);
+      }
+
+      // Scrollable hologram list
+      Group #HologramList {
+        Anchor: (Height: 420);
+        LayoutMode: TopScrolling;
+        ScrollbarStyle: $C.@DefaultScrollbarStyle;
+        Padding: (Full: 6);
+      }
+    }
+  }
+}
+
+// Edit popup overlay
+Group #EditPopup {
+  Visible: false;
+  Anchor: (Full: 0);
+  Background: #000000(0.7);
+  LayoutMode: Middle;
+
+  Group {
+    Anchor: (Width: 500, Height: 220);
+    Background: #1a2535(0.98);
+    Padding: (Full: 28);
+    LayoutMode: Top;
+
+    Label {
+      Style: LabelStyle(...$C.@TitleStyle, FontSize: 20);
+      Anchor: (Bottom: 20);
+      Text: %exampleplugin.ui.holograms.edit.title;
+    }
+
+    $C.@TextField #EditInput {
+      PlaceholderText: %exampleplugin.ui.holograms.edit.placeholder;
+      Anchor: (Bottom: 24, Height: 48);
+    }
+
+    Group {
+      LayoutMode: Left;
+      Anchor: (Height: 48);
+
+      Button #EditCancelButton {
+        Style: @CancelButtonStyle;
+        FlexWeight: 1;
+        Anchor: (Right: 16);
+        Padding: (Full: 14);
+
+        Label {
+          Style: LabelStyle(...$C.@DefaultLabelStyle, FontSize: 15, TextColor: #f0c0c0);
+          Text: %exampleplugin.ui.holograms.cancel;
+        }
+      }
+
+      Button #EditConfirmButton {
+        Style: @ConfirmButtonStyle;
+        FlexWeight: 1;
+        Padding: (Full: 14);
+
+        Label {
+          Style: LabelStyle(...$C.@DefaultLabelStyle, FontSize: 15, TextColor: #c0f0d0);
+          Text: %exampleplugin.ui.holograms.save;
+        }
+      }
+    }
+  }
+}
+
+$C.@BackButton {}

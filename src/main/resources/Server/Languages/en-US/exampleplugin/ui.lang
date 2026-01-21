@@ -112,3 +112,20 @@ waypoints.delete = Delete
 update.prefix = [{name}]
 update.available = Update available:
 update.download = Download:
+
+# Holograms UI
+holograms.title = Holograms
+holograms.placeholder = New hologram text...
+holograms.create = Create
+holograms.info = Holograms will be created at your current position
+holograms.edit = Edit
+holograms.teleport = Teleport
+holograms.delete = Delete
+holograms.edit.title = Edit Hologram
+holograms.edit.placeholder = Enter new text...
+holograms.save = Save
+holograms.cancel = Cancel
+holograms.created = Hologram created: '{text}'
+holograms.deleted = Hologram deleted.
+holograms.updated = Hologram updated: '{text}'
+holograms.teleported = Teleported to hologram: '{text}'
