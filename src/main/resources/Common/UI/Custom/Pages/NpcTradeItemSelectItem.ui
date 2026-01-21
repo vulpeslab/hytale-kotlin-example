@@ -1,0 +1,49 @@
+$C = "../Common.ui";
+$Sounds = "../Sounds.ui";
+
+@DefaultStyle = ButtonStyle(
+  Default: (
+    Background: #1a2535(0.5)
+  ),
+  Hovered: (
+    Background: #243040(0.7)
+  ),
+  Pressed: (
+    Background: #2e3a4a(0.9)
+  )
+);
+
+@SelectedStyle = ButtonStyle(
+  Default: (
+    Background: #2a5040(0.7)
+  ),
+  Hovered: (
+    Background: #3a6855(0.8)
+  ),
+  Pressed: (
+    Background: #4a7865(0.9)
+  )
+);
+
+Button {
+  Style: @DefaultStyle;
+  Anchor: (Width: 100, Height: 90, Right: 6, Bottom: 6);
+  Padding: (Full: 8);
+  LayoutMode: Top;
+
+  // Item icon
+  Group {
+    LayoutMode: Middle;
+    Anchor: (Height: 48);
+
+    ItemIcon #ItemIcon {
+      Anchor: (Width: 44, Height: 44);
+    }
+  }
+
+  // Item name
+  Label #ItemNameLabel {
+    Style: LabelStyle(...$C.@DefaultLabelStyle, FontSize: 10, HorizontalAlignment: Center, TextColor: #a0b0c0);
+    Anchor: (Height: 28);
+  }
+}

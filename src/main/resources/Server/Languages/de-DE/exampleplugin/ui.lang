@@ -129,3 +129,28 @@ holograms.created = Hologramm erstellt: '{text}'
 holograms.deleted = Hologramm gelöscht.
 holograms.updated = Hologramm aktualisiert: '{text}'
 holograms.teleported = Zu Hologramm teleportiert: '{text}'
+
+# NPC Trade Config UI
+npc.config.title = Handel konfigurieren -
+npc.config.addtrade = Handel hinzufügen
+npc.config.notrades = Keine Handel konfiguriert
+npc.config.input = Eingabe
+npc.config.output = Ausgabe
+npc.config.selectinput = Eingabe-Gegenstand wählen
+npc.config.selectoutput = Ausgabe-Gegenstand wählen
+npc.config.quantity = Anzahl:
+npc.config.save = Speichern
+npc.config.cancel = Abbrechen
+npc.config.remove = Entfernen
+npc.trade.added = Handel hinzugefügt.
+npc.trade.removed = Handel entfernt.
+npc.trade.updated = Handel aktualisiert.
+
+# NPC Trade Execute UI
+npc.trade.title = Handel mit {name}
+npc.trade.notrades = Dieser NPC bietet keine Handel an.
+npc.trade.button = Handeln
+npc.trade.success = Handel erfolgreich!
+npc.trade.noitems = Du hast nicht genug Gegenstände für diesen Handel.
+npc.trade.nospace = Nicht genug Inventarplatz für die Ausgabe-Gegenstände.
+npc.trade.error = Ein Fehler ist bei diesem Handel aufgetreten.

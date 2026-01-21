@@ -85,3 +85,16 @@ example.durability.set = Haltbarkeit des Gegenstands auf {value} gesetzt
 
 # Holograms Command
 holograms.description = Schwebende Texthologramme verwalten
+
+# NPC Command
+npc.description = Händler-NPCs verwalten
+npc.create.description = Erstelle einen Händler-NPC an deiner Position
+npc.create.name.desc = Anzeigename für den NPC
+npc.edit.description = NPC-Bearbeitungsmodus umschalten
+npc.created = Händler-NPC '{name}' erstellt (ID: {id})
+npc.deleted = Händler-NPC '{name}' gelöscht.
+npc.notfound = Händler-NPC nicht gefunden.
+npc.editmode.enabled = NPC-Bearbeitungsmodus aktiviert. Interagiere mit NPCs um Handel zu konfigurieren.
+npc.editmode.disabled = NPC-Bearbeitungsmodus deaktiviert.
+npc.clear.description = Alle Händler-NPCs entfernen
+npc.cleared = {count} Händler-NPC(s) aus der Welt entfernt.

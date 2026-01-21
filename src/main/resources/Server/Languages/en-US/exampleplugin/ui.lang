@@ -129,3 +129,28 @@ holograms.created = Hologram created: '{text}'
 holograms.deleted = Hologram deleted.
 holograms.updated = Hologram updated: '{text}'
 holograms.teleported = Teleported to hologram: '{text}'
+
+# NPC Trade Config UI
+npc.config.title = Configure Trades -
+npc.config.addtrade = Add Trade
+npc.config.notrades = No trades configured
+npc.config.input = Input
+npc.config.output = Output
+npc.config.selectinput = Select input item
+npc.config.selectoutput = Select output item
+npc.config.quantity = Quantity:
+npc.config.save = Save
+npc.config.cancel = Cancel
+npc.config.remove = Remove
+npc.trade.added = Trade added.
+npc.trade.removed = Trade removed.
+npc.trade.updated = Trade updated.
+
+# NPC Trade Execute UI
+npc.trade.title = Trade with {name}
+npc.trade.notrades = This NPC has no trades.
+npc.trade.button = Trade
+npc.trade.success = Trade successful!
+npc.trade.noitems = You don't have enough items for this trade.
+npc.trade.nospace = Not enough inventory space for the output items.
+npc.trade.error = An error occurred with this trade.

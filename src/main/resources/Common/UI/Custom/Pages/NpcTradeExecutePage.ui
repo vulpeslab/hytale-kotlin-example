@@ -1,0 +1,37 @@
+$C = "../Common.ui";
+$Sounds = "../Sounds.ui";
+
+$C.@PageOverlay {
+  LayoutMode: Middle;
+
+  $C.@DecoratedContainer {
+    Anchor: (Width: 700, Height: 500);
+
+    #Title {
+      Group {
+        LayoutMode: Left;
+        Padding: (Horizontal: 19);
+
+        Label #TitleLabel {
+          Style: $C.@TitleStyle;
+          Text: %exampleplugin.ui.npc.trade.title;
+        }
+      }
+    }
+
+    #Content {
+      LayoutMode: Top;
+      Padding: (Full: 24);
+
+      // Scrollable trade list
+      Group #TradeList {
+        Anchor: (Height: 400);
+        LayoutMode: TopScrolling;
+        ScrollbarStyle: $C.@DefaultScrollbarStyle;
+        Padding: (Full: 6);
+      }
+    }
+  }
+}
+
+$C.@BackButton {}

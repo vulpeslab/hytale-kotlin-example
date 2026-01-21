@@ -1,0 +1,72 @@
+$C = "../Common.ui";
+$Sounds = "../Sounds.ui";
+
+@AddButtonStyle = ButtonStyle(
+  Default: (
+    Background: #2a5a6a(0.9)
+  ),
+  Hovered: (
+    Background: #3a7080(0.95)
+  ),
+  Pressed: (
+    Background: #4a8090(1.0)
+  )
+);
+
+$C.@PageOverlay {
+  LayoutMode: Middle;
+
+  $C.@DecoratedContainer {
+    Anchor: (Width: 750, Height: 550);
+
+    #Title {
+      Group {
+        LayoutMode: Left;
+        Padding: (Horizontal: 19);
+
+        Label #TitleLabel {
+          Style: $C.@TitleStyle;
+          Text: %exampleplugin.ui.npc.config.title;
+        }
+      }
+    }
+
+    #Content {
+      LayoutMode: Top;
+      Padding: (Full: 24);
+
+      // Top section: Add trade button
+      Group {
+        LayoutMode: Left;
+        Anchor: (Bottom: 16, Height: 40);
+
+        Button #AddTradeButton {
+          Style: @AddButtonStyle;
+          Padding: (Horizontal: 20, Vertical: 10);
+          LayoutMode: Middle;
+
+          Label {
+            Style: LabelStyle(...$C.@DefaultLabelStyle, FontSize: 14, RenderBold: true, HorizontalAlignment: Center);
+            Text: %exampleplugin.ui.npc.config.addtrade;
+          }
+        }
+      }
+
+      // Separator
+      Group {
+        Anchor: (Vertical: 10, Height: 1);
+        Background: #5e512c(0.4);
+      }
+
+      // Scrollable trade list
+      Group #TradeList {
+        Anchor: (Height: 400);
+        LayoutMode: TopScrolling;
+        ScrollbarStyle: $C.@DefaultScrollbarStyle;
+        Padding: (Full: 6);
+      }
+    }
+  }
+}
+
+$C.@BackButton {}

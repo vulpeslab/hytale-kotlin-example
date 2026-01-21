@@ -1,0 +1,182 @@
+$C = "../Common.ui";
+$Sounds = "../Sounds.ui";
+
+@ConfirmButtonStyle = ButtonStyle(
+  Default: (
+    Background: #2a5040(0.85)
+  ),
+  Hovered: (
+    Background: #3a6855(0.95)
+  ),
+  Pressed: (
+    Background: #4a7865(1.0)
+  )
+);
+
+@CancelButtonStyle = ButtonStyle(
+  Default: (
+    Background: #502a2a(0.85)
+  ),
+  Hovered: (
+    Background: #683a3a(0.95)
+  ),
+  Pressed: (
+    Background: #784a4a(1.0)
+  )
+);
+
+@BackButtonStyle = ButtonStyle(
+  Default: (
+    Background: #3a3a50(0.85)
+  ),
+  Hovered: (
+    Background: #4a4a68(0.95)
+  ),
+  Pressed: (
+    Background: #5a5a78(1.0)
+  )
+);
+
+$C.@PageOverlay {
+  LayoutMode: Middle;
+
+  $C.@DecoratedContainer {
+    Anchor: (Width: 900, Height: 620);
+
+    #Title {
+      Group {
+        LayoutMode: Left;
+        Padding: (Horizontal: 19);
+
+        Label #TitleLabel {
+          Style: $C.@TitleStyle;
+          Text: %exampleplugin.ui.npc.config.selectinput;
+        }
+      }
+    }
+
+    #Content {
+      LayoutMode: Left;
+      Padding: (Full: 16);
+
+      // Left side: Item grid
+      Group {
+        FlexWeight: 1;
+        LayoutMode: Top;
+
+        // Search bar
+        Group {
+          LayoutMode: Left;
+          Anchor: (Bottom: 12, Height: 36);
+
+          $C.@TextField #SearchInput {
+            PlaceholderText: %exampleplugin.ui.kits.browser.search;
+            Anchor: (Width: 300);
+          }
+        }
+
+        // Scrollable item grid
+        Group #ItemGrid {
+          Anchor: (Height: 480);
+          LayoutMode: TopScrolling;
+          ScrollbarStyle: $C.@DefaultScrollbarStyle;
+          Padding: (Full: 6);
+        }
+      }
+
+      // Right side: Quantity editor (initially hidden)
+      Group #QuantityEditor {
+        Visible: false;
+        Anchor: (Width: 220);
+        Padding: (Left: 16);
+        LayoutMode: Top;
+
+        // Selected item display
+        Group {
+          Anchor: (Height: 120);
+          Background: #1a2535(0.6);
+          Padding: (Full: 16);
+          LayoutMode: Top;
+
+          Group {
+            LayoutMode: Middle;
+            Anchor: (Height: 60);
+
+            ItemIcon #SelectedItemIcon {
+              Anchor: (Width: 56, Height: 56);
+            }
+          }
+
+          Label #SelectedItemName {
+            Style: LabelStyle(...$C.@DefaultLabelStyle, FontSize: 13, HorizontalAlignment: Center, TextColor: #d0e0f0);
+            Anchor: (Height: 24);
+          }
+        }
+
+        // Quantity input section
+        Group {
+          Anchor: (Top: 16, Height: 80);
+          LayoutMode: Top;
+
+          Label {
+            Style: LabelStyle(...$C.@DefaultLabelStyle, FontSize: 14, TextColor: #a0b0c0);
+            Anchor: (Bottom: 8, Height: 20);
+            Text: %exampleplugin.ui.npc.config.quantity;
+          }
+
+          $C.@TextField #QuantityInput {
+            PlaceholderText: "1";
+            Anchor: (Height: 40);
+          }
+        }
+
+        // Buttons
+        Group {
+          Anchor: (Top: 16, Height: 90);
+          LayoutMode: Top;
+
+          Button #ConfirmButton {
+            Style: @ConfirmButtonStyle;
+            Anchor: (Bottom: 8, Height: 40);
+            Padding: (Full: 10);
+            LayoutMode: Middle;
+
+            Label {
+              Style: LabelStyle(...$C.@DefaultLabelStyle, FontSize: 14, TextColor: #c0f0d0, HorizontalAlignment: Center);
+              Text: %exampleplugin.ui.npc.config.save;
+            }
+          }
+
+          Button #CancelButton {
+            Style: @CancelButtonStyle;
+            Anchor: (Height: 40);
+            Padding: (Full: 10);
+            LayoutMode: Middle;
+
+            Label {
+              Style: LabelStyle(...$C.@DefaultLabelStyle, FontSize: 14, TextColor: #f0c0c0, HorizontalAlignment: Center);
+              Text: %exampleplugin.ui.npc.config.cancel;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Back button
+Group {
+  Anchor: (Top: 20, Left: 20, Width: 100, Height: 36);
+
+  Button #BackButton {
+    Style: @BackButtonStyle;
+    Anchor: (Full: 0);
+    Padding: (Full: 10);
+    LayoutMode: Middle;
+
+    Label {
+      Style: LabelStyle(...$C.@DefaultLabelStyle, FontSize: 13, HorizontalAlignment: Center);
+      Text: %exampleplugin.ui.kits.back;
+    }
+  }
+}

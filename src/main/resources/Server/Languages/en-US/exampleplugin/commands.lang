@@ -85,3 +85,16 @@ example.durability.set = Set held item durability to {value}
 
 # Holograms Command
 holograms.description = Manage floating text holograms
+
+# NPC Command
+npc.description = Manage trader NPCs
+npc.create.description = Create a trader NPC at your location
+npc.create.name.desc = Display name for the NPC
+npc.edit.description = Toggle NPC edit mode
+npc.created = Created trader NPC '{name}' (ID: {id})
+npc.deleted = Trader NPC '{name}' deleted.
+npc.notfound = Trader NPC not found.
+npc.editmode.enabled = NPC edit mode enabled. Interact with NPCs to configure trades.
+npc.editmode.disabled = NPC edit mode disabled.
+npc.clear.description = Remove all trader NPCs
+npc.cleared = Removed {count} trader NPC(s) from the world.

@@ -19,6 +19,7 @@ import com.vulpeslab.exampleplugin.commands.GodCommand
 import com.vulpeslab.exampleplugin.commands.HologramsCommand
 import com.vulpeslab.exampleplugin.commands.InvSeeCommand
 import com.vulpeslab.exampleplugin.commands.KitCommand
+import com.vulpeslab.exampleplugin.commands.NpcCommand
 import com.vulpeslab.exampleplugin.commands.RepairCommand
 import com.vulpeslab.exampleplugin.commands.UiCommand
 import com.vulpeslab.exampleplugin.commands.SuicideCommand
@@ -31,6 +32,7 @@ import com.vulpeslab.exampleplugin.listeners.GodModeListener
 import com.vulpeslab.exampleplugin.listeners.HologramBillboardSystem
 import com.vulpeslab.exampleplugin.listeners.MapTeleportFeature
 import com.vulpeslab.exampleplugin.listeners.PlayerConnectionListener
+import com.vulpeslab.exampleplugin.listeners.TraderNpcInteractionSystem
 import com.vulpeslab.exampleplugin.listeners.PlayerDeathPositionSystem
 import com.vulpeslab.exampleplugin.listeners.WaypointMapMarkerProvider
 import com.vulpeslab.exampleplugin.services.ArmorHudManager
@@ -39,7 +41,10 @@ import com.vulpeslab.exampleplugin.services.DeathPositionManager
 import com.vulpeslab.exampleplugin.services.HologramManager
 import com.vulpeslab.exampleplugin.services.HologramMarker
 import com.vulpeslab.exampleplugin.services.KitManager
+import com.vulpeslab.exampleplugin.services.NpcEditModeManager
 import com.vulpeslab.exampleplugin.services.SessionManager
+import com.vulpeslab.exampleplugin.services.TraderNpcManager
+import com.vulpeslab.exampleplugin.services.TraderNpcMarker
 import com.vulpeslab.exampleplugin.services.UpdateChecker
 import com.vulpeslab.exampleplugin.services.WaypointManager
 
@@ -50,9 +55,11 @@ class ExamplePlugin(init: JavaPluginInit) : JavaPlugin(init) {
         KitManager.initialize(dataDirectory)
         WaypointManager.initialize(dataDirectory)
         HologramManager.initialize(dataDirectory)
+        TraderNpcManager.initialize(dataDirectory)
 
         // Register component types
         HologramMarker.getComponentType()
+        TraderNpcMarker.getComponentType()
 
         // Register commands
         this.commandRegistry.registerCommand(ExampleCommand())
@@ -70,12 +77,14 @@ class ExamplePlugin(init: JavaPluginInit) : JavaPlugin(init) {
         this.commandRegistry.registerCommand(WaypointCommand())
         this.commandRegistry.registerCommand(WaypointsCommand())
         this.commandRegistry.registerCommand(HologramsCommand())
+        this.commandRegistry.registerCommand(NpcCommand())
 
         // Register ECS systems
         this.entityStoreRegistry.registerSystem(FlyFallDamageFilterSystem())
         this.entityStoreRegistry.registerSystem(PlayerDeathPositionSystem())
         this.entityStoreRegistry.registerSystem(ArmorHudUpdateSystem())
         this.entityStoreRegistry.registerSystem(HologramBillboardSystem())
+        this.entityStoreRegistry.registerSystem(TraderNpcInteractionSystem())
 
         // Register map marker providers for all worlds
         this.eventRegistry.registerGlobal(AddWorldEvent::class.java) { event ->
@@ -93,6 +102,14 @@ class ExamplePlugin(init: JavaPluginInit) : JavaPlugin(init) {
         this.eventRegistry.registerGlobal(PlayerReadyEvent::class.java) { event ->
             GodModeListener.onPlayerReady(event)
             PlayerConnectionListener.onPlayerReady(event)
+
+            // Restore markers for any persisted trader NPCs that lost their custom component
+            // This needs to run after entities are loaded, so we do it when a player joins
+            Universe.get().worlds.values.firstOrNull()?.let { world ->
+                world.execute {
+                    TraderNpcManager.restoreMarkersForPersistedEntities(world)
+                }
+            }
         }
         
 
@@ -101,7 +118,7 @@ class ExamplePlugin(init: JavaPluginInit) : JavaPlugin(init) {
             ChatFormatListener.onPlayerChat(event)
         }
 
-        // Spawn holograms when their chunks load
+        // Spawn holograms when their chunks load (holograms don't persist, so we need to spawn them)
         this.eventRegistry.registerGlobal(ChunkPreLoadProcessEvent::class.java) { event ->
             val chunk = event.chunk
             val blockChunk = chunk.blockChunk ?: return@registerGlobal
@@ -109,6 +126,7 @@ class ExamplePlugin(init: JavaPluginInit) : JavaPlugin(init) {
             val chunkZ = blockChunk.z
             val world = chunk.world
 
+            // Spawn holograms
             HologramManager.getAllHolograms().forEach { hologram ->
                 val hologramChunkX = MathUtil.floor(hologram.x) shr 5
                 val hologramChunkZ = MathUtil.floor(hologram.z) shr 5
@@ -121,13 +139,17 @@ class ExamplePlugin(init: JavaPluginInit) : JavaPlugin(init) {
                     }
                 }
             }
+
+            // Trader NPCs persist in the world, so we recover refs instead of spawning
+            // Recovery happens in TraderNpcInteractionSystem when it encounters entities
         }
     }
 
     override fun shutdown() {
-        // Despawn all holograms
+        // Despawn all holograms and NPCs
         Universe.get().worlds.values.firstOrNull()?.let { world ->
             HologramManager.despawnAllHolograms(world)
+            TraderNpcManager.despawnAllNpcs(world)
         }
 
         // Clear login sessions
@@ -141,6 +163,9 @@ class ExamplePlugin(init: JavaPluginInit) : JavaPlugin(init) {
 
         // Clear map teleport tracking
         MapTeleportFeature.clearAll()
+
+        // Clear NPC edit mode states
+        NpcEditModeManager.clear()
 
         // Close database connection
         DatabaseManager.shutdown()

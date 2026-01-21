@@ -1,0 +1,172 @@
+$C = "../Common.ui";
+$Sounds = "../Sounds.ui";
+
+@CardStyle = ButtonStyle(
+  Default: (
+    Background: #1a2535(0.6)
+  ),
+  Hovered: (
+    Background: #243040(0.8)
+  ),
+  Pressed: (
+    Background: #2e3a4a(1.0)
+  )
+);
+
+@ItemNameStyle = LabelStyle(
+  ...$C.@DefaultLabelStyle,
+  FontSize: 11,
+  HorizontalAlignment: Center,
+  TextColor: #a0b0c0
+);
+
+@QuantityStyle = LabelStyle(
+  ...$C.@DefaultLabelStyle,
+  FontSize: 13,
+  HorizontalAlignment: Center,
+  RenderBold: true,
+  TextColor: #f0d080
+);
+
+@ArrowStyle = LabelStyle(
+  ...$C.@DefaultLabelStyle,
+  FontSize: 24,
+  HorizontalAlignment: Center,
+  TextColor: #80a0c0
+);
+
+@TradeButtonStyle = ButtonStyle(
+  Default: (
+    Background: #2a5a4a(0.85)
+  ),
+  Hovered: (
+    Background: #3a7860(0.95)
+  ),
+  Pressed: (
+    Background: #4a8870(1.0)
+  )
+);
+
+@TradeButtonCanAffordStyle = ButtonStyle(
+  Default: (
+    Background: #2a6a3a(0.85)
+  ),
+  Hovered: (
+    Background: #3a8a4a(0.95)
+  ),
+  Pressed: (
+    Background: #4aa05a(1.0)
+  )
+);
+
+@TradeButtonCannotAffordStyle = ButtonStyle(
+  Default: (
+    Background: #5a2a2a(0.85)
+  ),
+  Hovered: (
+    Background: #6a3a3a(0.95)
+  ),
+  Pressed: (
+    Background: #7a4a4a(1.0)
+  )
+);
+
+Group {
+  Anchor: (Bottom: 10, Height: 100);
+  Background: #1a2535(0.5);
+  Padding: (Full: 12);
+
+  Group {
+    LayoutMode: Left;
+
+    // Input item section
+    Group {
+      Anchor: (Width: 180);
+      LayoutMode: Top;
+
+      // Item icon
+      Group {
+        LayoutMode: Middle;
+        Anchor: (Height: 50);
+
+        ItemIcon #InputItemIcon {
+          Anchor: (Width: 48, Height: 48);
+        }
+      }
+
+      // Item name
+      Label #InputItemName {
+        Style: @ItemNameStyle;
+        Anchor: (Height: 16);
+      }
+
+      // Quantity
+      Label #InputQuantityLabel {
+        Style: @QuantityStyle;
+        Anchor: (Height: 20);
+      }
+    }
+
+    // Arrow
+    Group {
+      Anchor: (Width: 60);
+      LayoutMode: Middle;
+
+      Label {
+        Style: @ArrowStyle;
+        Text: "→";
+      }
+    }
+
+    // Output item section
+    Group {
+      Anchor: (Width: 180);
+      LayoutMode: Top;
+
+      // Item icon
+      Group {
+        LayoutMode: Middle;
+        Anchor: (Height: 50);
+
+        ItemIcon #OutputItemIcon {
+          Anchor: (Width: 48, Height: 48);
+        }
+      }
+
+      // Item name
+      Label #OutputItemName {
+        Style: @ItemNameStyle;
+        Anchor: (Height: 16);
+      }
+
+      // Quantity
+      Label #OutputQuantityLabel {
+        Style: @QuantityStyle;
+        Anchor: (Height: 20);
+      }
+    }
+
+    // Spacer
+    Group {
+      FlexWeight: 1;
+    }
+
+    // Trade button
+    Group {
+      LayoutMode: Middle;
+      Anchor: (Width: 120);
+
+      Button #TradeButton {
+        Style: @TradeButtonStyle;
+        Anchor: (Width: 100, Height: 40);
+        Padding: (Full: 10);
+        LayoutMode: Middle;
+
+        Label {
+          Style: LabelStyle(...$C.@DefaultLabelStyle, FontSize: 14, HorizontalAlignment: Center, RenderBold: true, TextColor: #c0f0d0);
+          Text: %exampleplugin.ui.npc.trade.button;
+        }
+      }
+    }
+  }
+}

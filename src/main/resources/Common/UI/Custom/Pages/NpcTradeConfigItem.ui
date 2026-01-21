@@ -1,0 +1,176 @@
+$C = "../Common.ui";
+$Sounds = "../Sounds.ui";
+
+@CardStyle = ButtonStyle(
+  Default: (
+    Background: #1a2535(0.6)
+  ),
+  Hovered: (
+    Background: #243040(0.8)
+  ),
+  Pressed: (
+    Background: #2e3a4a(1.0)
+  )
+);
+
+@ItemNameStyle = LabelStyle(
+  ...$C.@DefaultLabelStyle,
+  FontSize: 11,
+  HorizontalAlignment: Center,
+  TextColor: #a0b0c0
+);
+
+@QuantityStyle = LabelStyle(
+  ...$C.@DefaultLabelStyle,
+  FontSize: 13,
+  HorizontalAlignment: Center,
+  RenderBold: true,
+  TextColor: #f0d080
+);
+
+@ArrowStyle = LabelStyle(
+  ...$C.@DefaultLabelStyle,
+  FontSize: 24,
+  HorizontalAlignment: Center,
+  TextColor: #80a0c0
+);
+
+@EditButtonStyle = ButtonStyle(
+  Default: (
+    Background: #3a5a4a(0.8)
+  ),
+  Hovered: (
+    Background: #4a7a5a(0.9)
+  ),
+  Pressed: (
+    Background: #5a8a6a(1.0)
+  )
+);
+
+@RemoveButtonStyle = ButtonStyle(
+  Default: (
+    Background: #5a3a3a(0.8)
+  ),
+  Hovered: (
+    Background: #7a4a4a(0.9)
+  ),
+  Pressed: (
+    Background: #8a5a5a(1.0)
+  )
+);
+
+Group {
+  Anchor: (Bottom: 10, Height: 100);
+  Background: #1a2535(0.5);
+  Padding: (Full: 12);
+
+  Group {
+    LayoutMode: Left;
+
+    // Input item section
+    Group {
+      Anchor: (Width: 160);
+      LayoutMode: Top;
+
+      // Item icon
+      Group {
+        LayoutMode: Middle;
+        Anchor: (Height: 50);
+
+        ItemIcon #InputItemIcon {
+          Anchor: (Width: 48, Height: 48);
+        }
+      }
+
+      // Item name
+      Label #InputItemName {
+        Style: @ItemNameStyle;
+        Anchor: (Height: 16);
+      }
+
+      // Quantity
+      Label #InputQuantityLabel {
+        Style: @QuantityStyle;
+        Anchor: (Height: 20);
+      }
+    }
+
+    // Arrow
+    Group {
+      Anchor: (Width: 50);
+      LayoutMode: Middle;
+
+      Label {
+        Style: @ArrowStyle;
+        Text: "→";
+      }
+    }
+
+    // Output item section
+    Group {
+      Anchor: (Width: 160);
+      LayoutMode: Top;
+
+      // Item icon
+      Group {
+        LayoutMode: Middle;
+        Anchor: (Height: 50);
+
+        ItemIcon #OutputItemIcon {
+          Anchor: (Width: 48, Height: 48);
+        }
+      }
+
+      // Item name
+      Label #OutputItemName {
+        Style: @ItemNameStyle;
+        Anchor: (Height: 16);
+      }
+
+      // Quantity
+      Label #OutputQuantityLabel {
+        Style: @QuantityStyle;
+        Anchor: (Height: 20);
+      }
+    }
+
+    // Spacer
+    Group {
+      FlexWeight: 1;
+    }
+
+    // Action buttons
+    Group {
+      LayoutMode: Middle;
+      Anchor: (Width: 180);
+
+      Group {
+        LayoutMode: Left;
+        Anchor: (Height: 36);
+
+        Button #EditButton {
+          Style: @EditButtonStyle;
+          Anchor: (Right: 8);
+          Padding: (Horizontal: 16, Vertical: 8);
+          LayoutMode: Middle;
+
+          Label {
+            Style: LabelStyle(...$C.@DefaultLabelStyle, FontSize: 12, HorizontalAlignment: Center);
+            Text: %exampleplugin.ui.holograms.edit;
+          }
+        }
+
+        Button #RemoveButton {
+          Style: @RemoveButtonStyle;
+          Padding: (Horizontal: 16, Vertical: 8);
+          LayoutMode: Middle;
+
+          Label {
+            Style: LabelStyle(...$C.@DefaultLabelStyle, FontSize: 12, HorizontalAlignment: Center);
+            Text: %exampleplugin.ui.npc.config.remove;
+          }
+        }
+      }
+    }
+  }
+}
