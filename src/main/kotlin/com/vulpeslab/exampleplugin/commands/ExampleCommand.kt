@@ -33,6 +33,9 @@ class ExampleCommand : AbstractCommandCollection("example", "exampleplugin.comma
      * No permission required for basic info, but update check requires updatenotify permission.
      */
     private class InfoCommand : AbstractAsyncCommand("info", "exampleplugin.commands.example.info.description") {
+        // Allow all players to use this command (no permission required)
+        override fun canGeneratePermission(): Boolean = false
+
         override fun executeAsync(context: CommandContext): CompletableFuture<Void> {
             // Plugin name and version
             context.sendMessage(
